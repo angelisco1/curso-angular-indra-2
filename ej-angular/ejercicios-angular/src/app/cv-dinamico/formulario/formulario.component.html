@@ -1,0 +1,23 @@
+<form method="POST">
+  <div>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" #n1>
+  </div>
+  <div>
+    <label for="apellido">Apellido:</label>
+    <input type="text" id="apellido" name="apellido" #a1>
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" #e1>
+  </div>
+  <button type="button" (click)="enviarDatos(n1.value, a1.value, e1.value)">Submit</button>
+</form>
+
+<hr>
+
+<!-- <div [hidden]="ocultarDatos"> -->
+<div [style.display]="ocultarDatos ? 'none' : 'block'">
+  <h3>CV de {{usuario.nombre}} {{usuario.apellido}}</h3>
+  <p>Email: {{usuario.email}}</p>
+</div>

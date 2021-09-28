@@ -1,0 +1,37 @@
+<h2>Data Binding</h2>
+
+<h3 style="color: blue;">String Interpolation</h3>
+<p>Me llamo {{nombre}}</p>
+<p>Hola {{nombre !== '' ? nombre : 'Mundo'}}</p>
+<p>{{getSaludo('Arya')}}</p>
+
+<h3>Property Binding</h3>
+<input type="text" [value]="nombre" [disabled]="deshabilitado">
+<p [style.color]="'blue'">El color de la letra es azúl</p>
+
+<h3>Event Binding</h3>
+<button type="button" (click)="muestraMensaje('Un mensaje cualquiera...', $event)">Muestra mensaje</button>
+<button type="button" (click)="canta()">Canta la intro</button>
+<!-- mousemove, mousedown, mouseover, mouseup, mouseenter, mouseleave, mouseout -->
+<!-- keypress, keyup, keydown -->
+<!-- submit, input, change -->
+<!-- click, dblclick, selection -->
+<!-- copy, paste -->
+<app-eventos></app-eventos>
+
+<h3>Two Way Data Binding</h3>
+<input type="text" [(ngModel)]="nombre">
+<button type="button" (click)="resetearNombre()">Resetear nombre</button>
+<input type="text" [(ngModel)]="persona.nombre">
+<input type="text" [(ngModel)]="persona.apellido">
+<p>{{persona.nombre}} {{persona.apellido}}</p>
+
+<h3>Nuestro 2Way Binding</h3>
+<input type="text" [value]="propiedad" (input)="cambiarPropiedad($event)">
+<p>{{propiedad}}</p>
+
+<!-- event.target.value -->
+
+<h3>Variables de plantilla</h3>
+<input type="text" #input1>
+<button type="button" (click)="muestraMensaje(input1.value, $event)">Mostrar texto input</button>

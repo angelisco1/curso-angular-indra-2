@@ -1,0 +1,5 @@
+Levantar el servidor de desarrollo lanzando el siguiente comando:
+
+npx http-serve
+
+Una vez lanzado tendremos en localhost:8080 el formulario.

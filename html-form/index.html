@@ -1,0 +1,18 @@
+<html>
+
+  <body>
+    <form method="POST" action="/">
+      <div>
+        <label for="mensaje">Escribe tu mensaje:</label>
+        <input type="text" id="mensaje" name="mensaje">
+      </div>
+      <button type="submit">Enviar mensaje</button>
+    </form>
+
+    <script>
+      document.querySelector('form').addEventListener('submit', (e) => {
+        e.preventDefault()
+      })
+    </script>
+  </body>
+</html>
