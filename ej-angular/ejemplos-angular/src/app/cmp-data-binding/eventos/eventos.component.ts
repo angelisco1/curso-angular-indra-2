@@ -17,4 +17,11 @@ export class EventosComponent implements OnInit {
     console.log(event.target.href)
   }
 
+  muestraLaCajaPulsada(caja: string, event: any) {
+    console.log(event)
+    event.stopPropagation()
+    console.log(event)
+    alert('Has pulsado sobre la ' + caja)
+  }
+
 }

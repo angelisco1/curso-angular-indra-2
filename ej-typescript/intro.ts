@@ -34,7 +34,7 @@ cualquierCosa = 'un string'
 cualquierCosa = false
 cualquierCosa = [1, 2, 3]
 
-let arrayDeNumerosYStrings: Array<string | number> = [1, '2', '4', 89]
+let arrayDeNumerosYStrings: Array<miTipo> = [1, '2', '4', 89]
 
 interface Serie {
   titulo: string
@@ -90,6 +90,9 @@ function getNumLoteria(numSorteo: number, ...numeros: Array<number>): string {
   }
   return `Los números para el sorteo ${sorteos[numSorteo]} son: ${numeros.join(', ')}`
 }
+
+// const arr = [1, 2, 3]
+// getNumLoteria(1, ...arr)
 
 const numeros = getNumLoteria(2, 3, 5, 13, 27, 36, 42)
 console.log(numeros)

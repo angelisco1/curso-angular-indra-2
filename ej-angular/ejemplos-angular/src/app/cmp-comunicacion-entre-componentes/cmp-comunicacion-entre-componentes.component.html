@@ -1,0 +1,22 @@
+<h2>Comunicación entre componentes (Input/Output)</h2>
+<div style="display: flex;">
+  <app-sugus></app-sugus>
+  <app-sugus color="orange" sabor="Naranja"></app-sugus>
+  <app-sugus color="blue" sabor="Piña"></app-sugus>
+  <app-sugus color="red" sabor="Fresa"></app-sugus>
+</div>
+
+<!-- <input type="text">
+<input type="number">
+<input type="email"> -->
+
+<app-producto
+  imageUrl="https://ph-files.imgix.net/f74054fb-6525-494b-bb89-f5c476ce2e12.png?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=60&h=60&fit=crop&dpr=2"
+  nombre="Angelist weekly"
+  descripcion="The best of the startup world, curated weekly 💌"
+></app-producto>
+
+<app-anakin></app-anakin>
+
+<app-mi-boton textoBtn="Alert" [handleClick]="fnAlert"></app-mi-boton>
+<app-mi-boton textoBtn="Console Log" [handleClick]="fnConsoleLog"></app-mi-boton>
