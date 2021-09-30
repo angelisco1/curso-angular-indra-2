@@ -1,0 +1,67 @@
+<h2>Directivas</h2>
+
+<h3>De atributo</h3>
+<p [style.color]="colorLetra" [style.text-decoration]="'underline'">El texto subrayado y de color naranja</p>
+<p [ngStyle]="getStyles()">El texto subrayado y de color naranja</p>
+<p [ngClass]="getClases()">El texto de color rojo con fondo amarillo</p>
+<input type="text" [(ngModel)]="colorLetra">
+<button type="button" (click)="toggleFondo()">Pinta el fondo</button>
+
+<h3>Estructurales</h3>
+
+<!-- <button type="button" *ngIf="darkMode" (click)="activaLightMode()">🌛</button> -->
+<!-- <button type="button" *ngIf="!darkMode" (click)="activaDarkMode()">☀️</button> -->
+
+<!--
+<button type="button" *ngIf="darkMode; else lightModeBtn" (click)="activaLightMode()">🌛</button>
+
+<ng-template #lightModeBtn>
+  <button type="button" (click)="activaDarkMode()">☀️</button>
+</ng-template> -->
+
+<ng-container *ngIf="darkMode; then darkModeBtn else lightModeBtn"></ng-container>
+
+<ng-template #darkModeBtn>
+  <button type="button" (click)="activaLightMode()">🌛</button>
+</ng-template>
+<ng-template #lightModeBtn>
+  <button type="button" (click)="activaDarkMode()">☀️</button>
+</ng-template>
+
+<ul>
+  <li *ngFor="let animal of animales; let pos = index; let esUltimo = last; let esPrimero = first; trackBy: trackByAnimales">
+    <hr *ngIf="esPrimero">
+    <span>{{pos + 1}}: {{animal | titlecase}} ({{esUltimo ? 'Es el último' : 'No es el último'}})</span>
+    <hr *ngIf="esUltimo">
+  </li>
+</ul>
+
+<ul>
+  <li *ngFor="let animal of animales2; trackBy: trackByAnimales2">
+    <span>{{animal.tipo | titlecase}}</span>
+  </li>
+</ul>
+
+<div [ngSwitch]="colorLetra">
+  <!-- <p *ngSwitchCase="'orange'">La letra naranja</p>
+  <p *ngSwitchCase="'blue'">La letra azul</p>
+  <p *ngSwitchCase="'red'">La letra roja</p> -->
+
+  <ng-container *ngFor="let color of colores">
+    <p *ngSwitchCase="color">La letra {{color}}</p>
+  </ng-container>
+  <p *ngSwitchDefault>La letra negra</p>
+</div>
+
+<p appMarcar color="yellow">Estoy usando la directiva appMarcar</p>
+
+<p appMarcar="yellow">Estoy usando la directiva appMarcar</p>
+
+<p [appMarcar]="colorLetra">Estoy usando la directiva appMarcar</p>
+
+<p appMarcar>Estoy usando la directiva appMarcar</p>
+
+<input powerMode type="text" />
+
+<!-- position: relative/absolute
+left, rigth, top, bottom -->
