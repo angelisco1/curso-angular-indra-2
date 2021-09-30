@@ -13,14 +13,13 @@ export class LukeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // handleChangeNombreLuke(txt: string): any {
-  //   console.log('bbbb')
-  //   let that = this
-  //   return () => {
-  //     console.log('cccc', {txt})
-  //     console.log(that)
-  //     that.handleChangeNombre(txt)
-  //   }
-  // }
+  handleChangeNombreLuke(txt: string): any {
+    // console.log('bbbb')
+    return () => {
+      // console.log('cccc', {txt})
+      // console.log(this)
+      this.handleChangeNombre(txt)
+    }
+  }
 
 }

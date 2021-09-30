@@ -9,7 +9,10 @@ export class AnakinComponent implements OnInit {
   nombreLuke = 'Luke Skywalker'
   nombreLeia = 'Leia Organa'
 
-  constructor() { }
+  constructor() {
+    // this.cambiaNombreLuke = this.cambiaNombreLuke.bind(this)
+    this.cambiaNombreLuke2 = this.cambiaNombreLuke2.bind(this)
+  }
 
   ngOnInit(): void {
   }
@@ -18,15 +21,17 @@ export class AnakinComponent implements OnInit {
     this.nombreLeia = nuevoNombre
   }
 
-  cambiaNombreLuke(nuevoNombre: any): void {
-    console.log('aaaa', {nuevoNombre})
-    this.nombreLuke = nuevoNombre
-    console.log('NL', this.nombreLuke)
+  cambiaNombreLuke(): any {
+    // console.log('aaaa', {nuevoNombre})
+    // console.log('aaaa THIS', this)
+    return (nuevoNombre: any) => this.nombreLuke = nuevoNombre
+    // console.log('NL', this.nombreLuke)
   }
 
-  // cambiaNombreLuke2(): any {
-  //   console.log(this)
-  //   this.cambiaNombreLuke('Angel')
-  // }
+  cambiaNombreLuke2() {
+    // console.log(this)
+    // return () => this.cambiaNombreLuke('Angel')
+    this.nombreLuke = 'Angel'
+  }
 
 }
