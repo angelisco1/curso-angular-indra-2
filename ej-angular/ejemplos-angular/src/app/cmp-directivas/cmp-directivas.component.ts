@@ -20,10 +20,16 @@ export class CmpDirectivasComponent implements OnInit {
   ]
 
   colores = ['orange', 'blue', 'red']
+  filtraColor = ''
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  addColor(event: any) {
+    // this.colores.push(event.target.value)
+    this.colores = [...this.colores, event.target.value]
   }
 
   toggleFondo() {
@@ -53,14 +59,14 @@ export class CmpDirectivasComponent implements OnInit {
   }
 
   trackByAnimales(index: number, animal: string) {
-    console.log(animal)
+    // console.log(animal)
     return animal
     // console.log(index)
     // return index
   }
 
   trackByAnimales2(index: number, animal: any) {
-    console.log(animal.id)
+    // console.log(animal.id, animal.tipo)
     return animal.id
   }
 }

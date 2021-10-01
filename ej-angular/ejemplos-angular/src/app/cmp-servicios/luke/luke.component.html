@@ -1,0 +1,8 @@
+<h3>Luke</h3>
+<p>Nuevas noticias: {{nuevaNoticia}}</p>
+
+<input type="text" (change)="guardarTarea($event)">
+
+<app-tarea
+  *ngFor="let tarea of tareas"
+  [tarea]="tarea"></app-tarea>

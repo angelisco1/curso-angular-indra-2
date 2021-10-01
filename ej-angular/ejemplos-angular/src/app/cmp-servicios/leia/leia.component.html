@@ -1,0 +1,9 @@
+<h3>Leia</h3>
+<button type="button" (click)="darLaNoticia()">Noticia</button>
+<p>Mensaje: {{mensaje}}</p>
+
+<input type="text" (change)="guardarTarea($event)">
+
+<app-tarea
+  *ngFor="let tarea of tareas"
+  [tarea]="tarea"></app-tarea>

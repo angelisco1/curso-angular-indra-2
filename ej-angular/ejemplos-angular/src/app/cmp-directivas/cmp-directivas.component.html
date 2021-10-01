@@ -9,6 +9,24 @@
 
 <h3>Estructurales</h3>
 
+<div>
+  <label for="nuevocolor">Añade un color:</label>
+  <input type="text" id="nuevocolor" (change)="addColor($event)">
+</div>
+<ul>
+  <li *ngFor="let color of colores">{{color}}</li>
+</ul>
+
+<div>
+  <label for="filtro">Filtra por:</label>
+  <input type="text" id="filtro" [(ngModel)]="filtraColor">
+</div>
+<ul>
+  <li *ngFor="let color of colores | filtro:filtraColor">{{color}}</li>
+</ul>
+
+
+
 <!-- <button type="button" *ngIf="darkMode" (click)="activaLightMode()">🌛</button> -->
 <!-- <button type="button" *ngIf="!darkMode" (click)="activaDarkMode()">☀️</button> -->
 
@@ -61,7 +79,7 @@
 
 <p appMarcar>Estoy usando la directiva appMarcar</p>
 
-<input powerMode type="text" />
+<input appPowerMode type="text" />
 
 <!-- position: relative/absolute
 left, rigth, top, bottom -->
