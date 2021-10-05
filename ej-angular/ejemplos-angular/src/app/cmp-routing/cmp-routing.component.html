@@ -1,0 +1,21 @@
+<h2>Routing (@angular/router)</h2>
+
+<ul>
+  <li>
+    <!-- <a href="/">Inicio</a> -->
+    <a [routerLink]="['/']">Inicio</a>
+  </li>
+  <li>
+    <!-- <a href="/nuevo-usuario">Nuevo usuario</a> -->
+    <a [routerLink]="['/nuevo-usuario']">Nuevo usuario</a>
+  </li>
+  <li>
+    <a [routerLink]="['/admin']">Administración (Lazy loading)</a>
+  </li>
+</ul>
+<hr>
+
+<router-outlet></router-outlet>
+
+<!-- localhost:4200/usuarios/3/tareas -->
+<!-- localhost:4200/nuevo-usuario/usuario/3/tareas -->

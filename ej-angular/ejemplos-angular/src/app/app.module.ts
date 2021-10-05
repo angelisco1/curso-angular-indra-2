@@ -31,7 +31,13 @@ import { TareaComponent } from './cmp-servicios/tarea/tarea.component';
 import { CmpObservablesComponent } from './cmp-observables/cmp-observables.component';
 import { UnsubscribeComponent } from './cmp-observables/unsubscribe/unsubscribe.component';
 import { CmpHttpComponent } from './cmp-http/cmp-http.component';
-import { CmpABorrarComponent } from './cmp-a-borrar/cmp-a-borrar.component'
+import { CmpABorrarComponent } from './cmp-a-borrar/cmp-a-borrar.component';
+import { CmpRoutingComponent } from './cmp-routing/cmp-routing.component';
+import { Error404Component } from './cmp-routing/error404/error404.component';
+import { NuevoUsuarioComponent } from './cmp-routing/nuevo-usuario/nuevo-usuario.component';
+import { ListaUsuariosComponent } from './cmp-routing/lista-usuarios/lista-usuarios.component'
+import { RoutingModule } from './cmp-routing/app.routes';
+import { InfoUsuarioComponent } from './cmp-routing/info-usuario/info-usuario.component';
 
 @NgModule({
   declarations: [
@@ -63,12 +69,18 @@ import { CmpABorrarComponent } from './cmp-a-borrar/cmp-a-borrar.component'
     CmpObservablesComponent,
     UnsubscribeComponent,
     CmpHttpComponent,
-    CmpABorrarComponent
+    CmpABorrarComponent,
+    CmpRoutingComponent,
+    Error404Component,
+    NuevoUsuarioComponent,
+    ListaUsuariosComponent,
+    InfoUsuarioComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
