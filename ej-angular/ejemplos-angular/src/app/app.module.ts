@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { ComponenteAManoComponent } from './componente-a-mano/componente-a-mano.component';
@@ -26,7 +27,11 @@ import { FiltroPipe } from './cmp-directivas/filtro.pipe';
 import { CmpServiciosComponent } from './cmp-servicios/cmp-servicios.component';
 import { LukeComponent as SLukeComponent } from './cmp-servicios/luke/luke.component'
 import { LeiaComponent as SLeiaComponent } from './cmp-servicios/leia/leia.component';
-import { TareaComponent } from './cmp-servicios/tarea/tarea.component'
+import { TareaComponent } from './cmp-servicios/tarea/tarea.component';
+import { CmpObservablesComponent } from './cmp-observables/cmp-observables.component';
+import { UnsubscribeComponent } from './cmp-observables/unsubscribe/unsubscribe.component';
+import { CmpHttpComponent } from './cmp-http/cmp-http.component';
+import { CmpABorrarComponent } from './cmp-a-borrar/cmp-a-borrar.component'
 
 @NgModule({
   declarations: [
@@ -54,11 +59,16 @@ import { TareaComponent } from './cmp-servicios/tarea/tarea.component'
     CmpServiciosComponent,
     SLukeComponent,
     SLeiaComponent,
-    TareaComponent
+    TareaComponent,
+    CmpObservablesComponent,
+    UnsubscribeComponent,
+    CmpHttpComponent,
+    CmpABorrarComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
