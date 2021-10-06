@@ -46,4 +46,25 @@ export class CmpHttpComponent implements OnInit {
       })
   }
 
+  getTarea() {
+    this.tareasService.getTareaConCategorias(2)
+      .subscribe((tarea: any) => {
+        console.log({tarea})
+      })
+  }
+
+  getTareasCat1() {
+    this.tareasService.getTareasPorCategoria(1)
+      .subscribe((tareas: any) => {
+        console.log(tareas)
+      })
+  }
+
+  getTareas() {
+    this.tareasService.getTareasConCategorias()
+      .subscribe((tareas: any) => {
+        console.log(tareas)
+      })
+  }
+
 }
