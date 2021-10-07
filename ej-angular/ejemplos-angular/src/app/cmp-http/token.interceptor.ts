@@ -17,11 +17,21 @@ export class TokenInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     console.log('Pasa por el interceptor...')
-    const nuevaRequest = request.clone({
-      headers: request.headers.append('Authorization', '1234')
-    })
 
-    return next.handle(nuevaRequest)
+    const token = localStorage.getItem('jwtToken')
+    if (token) {
+      const authHeader = `Bearer ${token}`
+
+      const nuevaRequest = request.clone({
+        // headers: request.headers.append('Authorization', '1234')
+        headers: request.headers.append('Authorization', authHeader)
+      })
+
+      return next.handle(nuevaRequest)
+    }
+
+    return next.handle(request)
+
       // .pipe(
       //   map(resp => {
       //     console.log(resp)

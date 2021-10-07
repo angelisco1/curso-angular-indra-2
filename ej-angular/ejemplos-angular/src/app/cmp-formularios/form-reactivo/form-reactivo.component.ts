@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-form-reactivo',
@@ -9,7 +10,7 @@ import { FormGroup, FormControl, Validators, AbstractControl, ValidationErrors }
 export class FormReactivoComponent implements OnInit {
   formulario: FormGroup;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
     this.formulario = new FormGroup({
@@ -22,7 +23,27 @@ export class FormReactivoComponent implements OnInit {
   }
 
   login() {
-    console.log(this.formulario)
+    console.log(this.formulario.value)
+    const {username, password} = this.formulario.value
+    this.authService.login(username, password)
+      .subscribe((datos: any) => {
+        console.log(datos.token)
+        localStorage.setItem('jwtToken', datos.token)
+        // sessionStorage.setItem('jwtToken', datos.token)
+      })
+  }
+
+  logout() {
+    this.authService.logout()
+  }
+
+  getDatos() {
+    this.authService.getDatos()
+      .subscribe((datos: any) => {
+        console.log({datos})
+      }, (err) => {
+        alert(err.error.msg)
+      })
   }
 
   minLengthNuestro(min: number) {

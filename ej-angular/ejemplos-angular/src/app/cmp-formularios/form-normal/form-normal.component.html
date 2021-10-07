@@ -1,0 +1,22 @@
+<h3>Formulario normal</h3>
+
+<form (ngSubmit)="login(form)" #form="ngForm">
+  <div>
+    <label for="usuario">Usuario</label>
+    <input type="text" id="usuario" name="usuario" [(ngModel)]="datosLogin.usuario" required #usuario="ngModel">
+    <app-error
+      *ngIf="usuario.invalid && usuario.touched"
+      [errores]="usuario.errors"
+    ></app-error>
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" [(ngModel)]="datosLogin.password" required minlength="5" #pass="ngModel">
+    <app-error
+      *ngIf="pass.invalid && pass.touched"
+      [errores]="pass.errors"
+    ></app-error>
+  </div>
+  <button type="submit">Login</button>
+  <button type="submit" [disabled]="form.invalid">Login</button>
+</form>
