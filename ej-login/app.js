@@ -28,6 +28,25 @@ app.get('/', (req, res, next) => {
   res.json({ok: true})
 })
 
+app.post('/register', (req, res, next) => {
+  const {usuario, nombre, apellidos, password} = req.body
+  const pos = usuariosRegistrados[usuariosRegistrados.length-1].id + 1
+
+  const usuarioAGuardar = {
+    id: pos,
+    nombreCompleto: `${nombre} ${apellidos}`,
+    rol: 'FREE',
+    username: usuario,
+    password: password
+  }
+  usuariosRegistrados.push(usuarioAGuardar)
+
+  const user = {...usuarioAGuardar}
+  delete user.password
+  return res.status(201).json(user)
+})
+
+
 app.post('/login', (req, res, next) => {
   console.log(req.body)
   const {usuario, password} = req.body

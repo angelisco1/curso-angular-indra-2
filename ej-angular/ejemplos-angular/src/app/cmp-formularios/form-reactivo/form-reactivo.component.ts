@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl, ValidationErrors, FormArray } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import jwtDecode from 'jwt-decode'
 
 @Component({
   selector: 'app-form-reactivo',
@@ -9,6 +10,7 @@ import { AuthService } from '../auth.service';
 })
 export class FormReactivoComponent implements OnInit {
   formulario: FormGroup;
+  datosPayload: any = null
 
   constructor(private authService: AuthService) { }
 
@@ -19,7 +21,16 @@ export class FormReactivoComponent implements OnInit {
         validators: [Validators.required, Validators.minLength(5), Validators.pattern('(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$')],
         updateOn: 'blur'
       }),
+      categorias: new FormArray([])
     })
+  }
+
+  selectCheckbox(event) {
+    if (event.target.checked) {
+      (<FormArray>this.formulario.controls.categorias).push(new FormControl(event.target.value))
+    } else {
+      // (<FormArray>this.formulario.controls.categorias).removeAt(pos)
+    }
   }
 
   login() {
@@ -30,6 +41,10 @@ export class FormReactivoComponent implements OnInit {
         console.log(datos.token)
         localStorage.setItem('jwtToken', datos.token)
         // sessionStorage.setItem('jwtToken', datos.token)
+
+        const payload = jwtDecode(datos.token)
+        this.datosPayload = payload
+        console.log({payload})
       })
   }
 

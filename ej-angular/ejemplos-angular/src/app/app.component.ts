@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'ejemplos-angular';
   cuenta = 4
+  localesList = [
+    { code: 'en-US', label: 'English' },
+    { code: 'es', label: 'Spanish' },
+    { code: 'fr', label: 'French' }
+  ]
 }

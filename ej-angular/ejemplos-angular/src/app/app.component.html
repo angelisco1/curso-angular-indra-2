@@ -13,4 +13,12 @@
 <!-- <app-cmp-http></app-cmp-http> -->
 <!-- <app-cmp-routing></app-cmp-routing> -->
 <!-- <app-cmp-modulos></app-cmp-modulos> -->
-<app-cmp-formularios></app-cmp-formularios>
+<!-- <app-cmp-formularios></app-cmp-formularios> -->
+<app-cmp-internacionalizacion></app-cmp-internacionalizacion>
+<ul>
+  <li *ngFor="let locale of localesList">
+    <a href="/{{locale.code}}/">
+      {{locale.label}}
+    </a>
+  </li>
+</ul>

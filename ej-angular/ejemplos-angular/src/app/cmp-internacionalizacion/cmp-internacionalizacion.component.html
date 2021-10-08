@@ -1,0 +1,12 @@
+<h2>Internacionalizacion</h2>
+
+<p i18n>Hello World</p>
+<p>{{3 | currency:'EUR'}}</p>
+
+<ul>
+  <li>ng add @angular/localize</li>
+  <li>ng extract-i18n --output-path src/locales</li>
+  <li>Hacemos los cambios en los archivos de xlf y angular.json</li>
+  <li>ng s --configuration=es</li>
+  <li>ng build --localize</li>
+</ul>

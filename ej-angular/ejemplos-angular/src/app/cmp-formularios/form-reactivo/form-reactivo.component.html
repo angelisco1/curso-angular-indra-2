@@ -15,9 +15,21 @@
       *ngIf="formulario.controls.password.touched && formulario.controls.password.invalid"
       [errores]="formulario.controls.password.errors"></app-error>
   </div>
-  <button type="submit">Login</button>
-  <button type="submit" [disabled]="formulario.invalid">Login</button>
+
+  <div>
+    <label for="categorias">Categorias</label>
+    <input type="checkbox" value="c1" (change)="selectCheckbox($event)" >
+    <input type="checkbox" value="c2" (change)="selectCheckbox($event)" >
+    <input type="checkbox" value="c3" (change)="selectCheckbox($event)" >
+  </div>
+
+
+  <button type="submit" class="btn btn-success">Login</button>
+  <button type="submit" class="btn btn-success" [disabled]="formulario.invalid">Login</button>
 </form>
 
-<button type="button" (click)="getDatos()">Get datos</button>
-<button type="button" (click)="logout()">Logout</button>
+<button type="button" class="btn btn-primary" (click)="getDatos()">Get datos</button>
+<button type="button" class="btn btn-danger" (click)="logout()">Logout</button>
+
+<p>Datos que vienen del token:</p>
+<pre>{{datosPayload | json}}</pre>

@@ -18,7 +18,7 @@ export class NuevoUsuarioComponent implements OnInit, ComponentCanDeactivate {
     console.log('Guardando datos...')
     setTimeout(() => {
       // Redirección
-      // this.router.navigate(['/'])
+      // this.router.navigate(['/lista'])
       this.datosGuardados = true
     }, 1000)
   }
